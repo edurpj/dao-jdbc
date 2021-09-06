@@ -1,10 +1,7 @@
 package application;
 
-import com.mysql.fabric.xmlrpc.base.Data;
-
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
-import model.entities.Department;
 import model.entities.Seller;
 
 public class Program {
@@ -12,16 +9,17 @@ public class Program {
 	public static void main(String[] args) {
 		
 		
-		Seller seller = new Seller();
+		//Seller seller = new Seller();
 		//seller.setBaseSalary(3000);
-		seller.setName("Teste");
+		//seller.setName("Teste");
 		
 		SellerDao sellerDao = DaoFactory.createSellerDao();
 		
-		Department obj = new Department(1, "Books");
-		System.out.println(obj);
-		
+		Seller seller = sellerDao.findById(3);	
 		System.out.println(seller);
+		
+		
+		
 
 	}
 

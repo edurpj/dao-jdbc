@@ -1,11 +1,10 @@
 package application;
 
-import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
-import model.dao.impl.SellerDaoJDBC;
 import model.entities.Department;
 import model.entities.Seller;
 
@@ -16,7 +15,8 @@ public class Program {
 		// Seller seller = new Seller();
 		// seller.setBaseSalary(3000);
 		// seller.setName("Teste");
-
+		
+		Scanner sc = new Scanner(System.in);
 		SellerDao sellerDao = DaoFactory.createSellerDao();
 
 		System.out.println("________ TEST 1: find By id: ________ ");
@@ -40,17 +40,27 @@ public class Program {
 			System.out.println(obj);
 		}
 		
-		System.out.println("________ TEST 4: Seller insert: ________ ");
+		/*System.out.println("________ TEST 4: Seller insert: ________ ");
 		Seller newSeller = new Seller(null, "Kayd", "kayd@gmail.com", new Date(), (double) 5000, department);
-		SellerDaoJDBC.insert(newSeller);
-		System.out.println("Inserted " + newSeller.getId());
+		SellerDaoJDBC sellerDaoJDBC = new SellerDaoJDBC(null);
+		sellerDaoJDBC.insert(newSeller);
+		System.out.println("Inserted " + newSeller.getId()); */
 		
 		System.out.println("________ TEST 5: Seller Update: ________ ");
 		
 		seller = sellerDao.findById(1);
 		seller.setName("Joel");
-		SellerDao.update(seller);
+		sellerDao.update(seller);
 		System.out.println("Update completed");
+		
+		System.out.println("________ TEST 6: Seller Delete: ________ ");
+		System.out.println("Enter de id number for delete: ");
+		int id = sc.nextInt();
+		sellerDao.deleteById(id);
+		System.out.println("Delete completed");
+		
+		
+		sc.close();
 	}
-
+	
 }

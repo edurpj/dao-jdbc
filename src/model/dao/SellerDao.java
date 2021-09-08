@@ -12,7 +12,10 @@ public interface SellerDao {
 		// TODO Auto-generated method stub
 		
 	}
-	void update(Seller obj);
+	static void update(Seller obj) {
+		// TODO Auto-generated method stub
+		
+	}
 	void deleteById(Integer id);
 	Seller findById(Integer id);
 	List<Seller> findAll();
